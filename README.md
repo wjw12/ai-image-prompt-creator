@@ -1,6 +1,6 @@
 # AI Prompt Generator
 
-Welcome to the AI Prompt Generator project! This tool helps users create dynamic prompts for AI image generation, particularly tailored for anime and fantasy-style artwork.
+Welcome to the AI Prompt Generator project! This tool helps users create dynamic prompts for AI image generation. All these prompts are applicable to Stable Diffusion models hosted on [Heurist Imagine](https://imagine.heurist.ai).
 
 ## Configuration Explanation
 
@@ -17,6 +17,7 @@ Each template in the `templates` array has the following structure:
   "template": "Fixed keyword 1, fixed keyword 2, [category1,default=default_value], [category2,default=default_value], some other fixed keyword",
   "recommendedModel": "ModelName"
 }
+```
 
 - id: A unique identifier for the template
 - name: The display name of the template
@@ -70,7 +71,7 @@ To add new keywords to existing categories:
 Feel free to suggest new categories if needed!
 
 ### Try It Out!
-You can try out these prompts and generate images for free at imagine.heurist.ai, our AI image generator platform.
+You can try out these prompts and generate images for free at [https://imagine.heurist.ai](https://imagine.heurist.ai), our AI image generator platform.
 
 ### Feedback and Support
 
