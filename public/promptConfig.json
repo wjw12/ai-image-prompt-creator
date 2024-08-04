@@ -1,0 +1,87 @@
+{
+    "templates": [
+      {
+        "id": "anime_character",
+        "name": "Anime Character",
+        "template": "80's anime screencap, artistic rendering with wide brush strokes, anime comic, sharp, [character,default=1girl], [activity,default=holding a sword], [emotion,default=determined], [environment,default=in a dojo], [hairstyle,default=long flowing hair], [lighting,default=dramatic backlighting], [clothing,default=traditional kimono]",
+        "recommendedModel": "DreamShaperXL"
+      },
+      {
+        "id": "fantasy_landscape",
+        "name": "Fantasy Landscape",
+        "template": "epic fantasy landscape, [environment,default=misty mountains], [lighting,default=golden hour], [atmosphere,default=mystical], with [character,default=ancient dragon] and [object,default=hidden castle], [style,default=digital painting]",
+        "recommendedModel": "CyberRealisticXL"
+      },
+      {
+        "id": "sci_fi_portrait",
+        "name": "Sci-Fi Portrait",
+        "template": "futuristic portrait, [character,default=cyborg], [emotion,default=stoic], [clothing,default=neon-lit armor], [environment,default=cyberpunk city], [lighting,default=neon glow], [style,default=hyper-realistic]",
+        "recommendedModel": "AnimagineXL"
+      }
+    ],
+    "categories": {
+      "character": [
+        "1girl",
+        "1boy",
+        "group",
+        "animal",
+        "robot",
+        "alien",
+        "cyborg",
+        "ancient dragon"
+      ],
+      "activity": [
+        "holding a sword",
+        "casting spell",
+        "running",
+        "flying",
+        "meditating",
+        "fighting"
+      ],
+      "emotion": ["determined", "happy", "sad", "angry", "surprised", "stoic"],
+      "environment": [
+        "in a dojo",
+        "misty mountains",
+        "cyberpunk city",
+        "space station",
+        "underwater city"
+      ],
+      "hairstyle": [
+        "long flowing hair",
+        "short spiky hair",
+        "braided",
+        "mohawk",
+        "bald"
+      ],
+      "lighting": [
+        "dramatic backlighting",
+        "soft ambient",
+        "harsh sunlight",
+        "neon glow",
+        "golden hour"
+      ],
+      "clothing": [
+        "traditional kimono",
+        "futuristic suit",
+        "medieval armor",
+        "casual wear",
+        "neon-lit armor"
+      ],
+      "atmosphere": ["mystical", "tense", "peaceful", "chaotic", "serene"],
+      "object": [
+        "hidden castle",
+        "ancient artifact",
+        "futuristic vehicle",
+        "magical staff",
+        "high-tech gadget"
+      ],
+      "style": [
+        "digital painting",
+        "watercolor",
+        "oil painting",
+        "pencil sketch",
+        "hyper-realistic"
+      ]
+    }
+  }
+  
