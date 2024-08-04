@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# AI Prompt Generator
 
-## Getting Started
+Welcome to the AI Prompt Generator project! This tool helps users create dynamic prompts for AI image generation, particularly tailored for anime and fantasy-style artwork.
 
-First, run the development server:
+## Configuration Explanation
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+The project uses a JSON configuration file to define prompt templates and categories. Here's a breakdown of the structure:
+
+### Templates
+
+Each template in the `templates` array has the following structure:
+
+```json
+{
+  "id": "unique_identifier",
+  "name": "Display Name",
+  "template": "Fixed keyword 1, fixed keyword 2, [category1,default=default_value], [category2,default=default_value], some other fixed keyword",
+  "recommendedModel": "ModelName"
+}
+
+- id: A unique identifier for the template
+- name: The display name of the template
+- template: The prompt structure, with placeholders for dynamic categories
+- recommendedModel: The suggested AI model for this template
+
+### Categories
+
+The `categories` object contains lists of keywords for each category:
+```json
+"categories": {
+  "category1": ["keyword1", "keyword2", "keyword3"],
+  "category2": ["keyword1", "keyword2", "keyword3"]
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Contribution Guide
+We welcome contributions to expand our collection of prompt templates and keywords! Here's how you can contribute:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+1. Fork this repository
+2. Make your changes to the configuration file
+3. Submit a pull request with your changes
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Adding a New Template
+To add a new template:
 
-## Learn More
+1. Open the configuration file
+2. Add a new object to the templates array
+3. Ensure your template has a unique id
+4. Use existing categories or create new ones as needed
+5. Specify a recommended model
 
-To learn more about Next.js, take a look at the following resources:
+Example:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```json
+{
+  "id": "steampunk_invention",
+  "name": "Steampunk Invention",
+  "template": "steampunk-style [object,default=flying machine], with [character,default=inventor] operating it, [environment,default=Victorian-era workshop], [lighting,default=warm gaslight], [style,default=detailed illustration]",
+  "recommendedModel": "SteampunkDreamerXL"
+}
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Adding New Keywords
+To add new keywords to existing categories:
 
-## Deploy on Vercel
+1. Open the configuration file
+2. Find the relevant category in the categories object
+3. Add your new keywords to the array
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Feel free to suggest new categories if needed!
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Try It Out!
+You can try out these prompts and generate images for free at imagine.heurist.ai, our AI image generator platform.
+
+### Feedback and Support
+
+If you have any questions, suggestions, or issues, please open an issue in this repository. We appreciate your feedback and contributions!
+
+Happy prompting!
