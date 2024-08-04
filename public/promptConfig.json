@@ -17,14 +17,46 @@
         "name": "Sci-Fi Portrait",
         "template": "futuristic portrait, [character,default=cyborg], [emotion,default=stoic], [clothing,default=neon-lit armor], [environment,default=cyberpunk city], [lighting,default=neon glow], [style,default=hyper-realistic]",
         "recommendedModel": "AnimagineXL"
+      },
+      {
+        "id": "cartoon_adventure",
+        "name": "Cartoon Adventure Scene",
+        "template": "Vibrant cartoon style, [character,default=adventurous kid], [activity,default=exploring], [emotion,default=excited], in a [environment,default=magical forest], with [object,default=enchanted map], [lighting,default=dappled sunlight], [style,default=whimsical and colorful]",
+        "recommendedModel": "BrainDance"
+      },
+      {
+        "id": "anime_school_life",
+        "name": "Anime School Life",
+        "template": "Japanese anime style, [character,default=high school student], [activity,default=running late for school], [environment,default=cherry blossom-lined street], [emotion,default=determined], [hairstyle,default=windswept], [clothing,default=school uniform], [style,default=soft shading]",
+        "recommendedModel": "BlazingDrive"
+      },
+      {
+        "id": "modern_interior",
+        "name": "Modern Interior Design",
+        "template": "Contemporary interior design, [environment,default=open-plan living space], with [object,default=minimalist furniture], [lighting,default=natural light flooding in], [atmosphere,default=serene], [style,default=sleek and modern]",
+        "recommendedModel": "ArchitectureRealMix"
+      },
+      {
+        "id": "historic_exterior",
+        "name": "Historic Exterior Architecture",
+        "template": "Detailed exterior of [environment,default=Gothic cathedral], showcasing [object,default=intricate spires], [lighting,default=golden hour], [atmosphere,default=awe-inspiring], [style,default=photorealistic]",
+        "recommendedModel": "ArchitectureRealMix"
+      },
+      {
+        "id": "3d_animated_character",
+        "name": "3D Animated Character",
+        "template": "3D rendered character, [character,default=lovable monster], [emotion,default=friendly], [activity,default=waving], [environment,default=fantastical landscape], [lighting,default=soft ambient], [style,default=Pixar-inspired]",
+        "recommendedModel": "Aurora"
       }
     ],
     "categories": {
       "character": [
         "1girl",
         "1boy",
-        "group",
-        "animal",
+        "group of girls",
+        "group of boys",
+        "cat",
+        "dog",
         "robot",
         "alien",
         "cyborg",
@@ -36,52 +68,121 @@
         "running",
         "flying",
         "meditating",
-        "fighting"
+        "fighting",
+        "battle stance",
+        "shot in the chest",
+        "playing a harp",
+        "playing guitar",
+        "fantasy spear slamming down",
+        "rising from water"
       ],
-      "emotion": ["determined", "happy", "sad", "angry", "surprised", "stoic"],
+      "emotion": ["determined", "happy", "sad", "angry", "surprised", "cute smile", "seductive look", "evil", "open mouth smile", "shy", "melanchony"],
       "environment": [
         "in a dojo",
         "misty mountains",
         "cyberpunk city",
         "space station",
-        "underwater city"
+        "underwater city",
+        "snowy forest",
+        "hyperdetailed scenery",
+        "many night stars with constellation of stars in the sky",
+        "purple electricity crackles in the sky",
+        "colorful city skyline",
+        "realm of darkness",
+        "dreamlike atmosphere",
+        "mist-shrouded",
+        "field of wheat",
+        "hyperdetailed clothing and fashion",
+        "high fashion",
+        "dense sinister forest",
+        "haunting landscape",
+        "star wars technology",
+        "golden morning sunlight in the Roman forum",
+        "volumetric lighting maximalist photo illustration",
+        "CG unity 8k wallpaper",
+        "magical energy swirling around",
+        "retrofuturism",
+        "leafs falling from trees",
+        "space creatures",
+        "ancient Greek town",
+        "swimming pool background",
+        "tall gold skyscraper buildings",
+        "the moon started to rise in the distance",
+        "downtown tokyo",
+        "thick jungle background",
+        "cherry blossom tree",
+        "dark meca city background"
       ],
       "hairstyle": [
-        "long flowing hair",
-        "short spiky hair",
-        "braided",
-        "mohawk",
-        "bald"
+        "long flowing hair", 
+        "short spiky hair", 
+        "braided", 
+        "mohawk", 
+        "bald", 
+        "bob cut", 
+        "afro", 
+        "dreadlocks"
       ],
       "lighting": [
         "dramatic backlighting",
         "soft ambient",
         "harsh sunlight",
         "neon glow",
-        "golden hour"
+        "golden hour",
+        "moonlight",
+        "neon pink lighting",
+        "mystical glow",
+        "volumetric lighting",
+        "soft warm lighting",
+        "bioluminescent", 
+        "fire-lit"
       ],
       "clothing": [
         "traditional kimono",
         "futuristic suit",
         "medieval armor",
         "casual wear",
-        "neon-lit armor"
+        "neon-lit armor",
+        "bikini",
+        "koseki bijou",
+        "pink bodysuit",
+        "Feathered bolero",
+        "white embroidered bra",
+        "peaked military commander cap",
+        "fancy purple military commander cap",
+        "lab coat",
+        "rain coat",
+        "dark brown leather corset",
+        "Satin tube top with a bow detail",
+        "white toga with intricate glowing designs",
+        "Beaded halter neck blouse",
+        "Velvet blazer",
+        "long flowy grey and ice blue steampunk dress",
+        "Crop top with dainty embroidery",
+        "space hoodie fashion",
+        "elegant and futuristic fashion",
+        "Sari blouse with detailed handwork",
+        "turtleneck halter",
+        "vintage girl",
+        "Leather biker jacket",
+        "Fur-trimmed jacket",
+        "Fitted track jacket",
+        "Kimono-inspired blouse with detailed hand-painted motifs",
+        "Basic cardigan in pastel shades",
+        "dress with corset and detached sleeve",
+        "Camouflage Jacket",
+        "techwear jacket",
+        "Black suits",
+        "ragged gray sweater",
+        "Ancient Roman toga",
+        "sleeveless undershirt white",
+        "flowing robes", 
+        "steampunk attire", 
+        "tribal outfit"
       ],
-      "atmosphere": ["mystical", "tense", "peaceful", "chaotic", "serene"],
-      "object": [
-        "hidden castle",
-        "ancient artifact",
-        "futuristic vehicle",
-        "magical staff",
-        "high-tech gadget"
-      ],
-      "style": [
-        "digital painting",
-        "watercolor",
-        "oil painting",
-        "pencil sketch",
-        "hyper-realistic"
-      ]
+      "atmosphere": ["mystical", "tense", "peaceful", "chaotic", "serene", "eerie", "nostalgic", "whimsical", "dystopian", "utopian", "post-apocalyptic", "ethereal"],
+      "object": ["hidden castle", "ancient artifact", "futuristic vehicle", "magical staff", "high-tech gadget", "enchanted book", "cosmic crystal", "time machine", "robotic companion", "portal gateway"],
+      "style": ["digital painting", "watercolor", "oil painting", "pencil sketch", "hyper-realistic", "low poly", "vaporwave", "art nouveau", "cyberpunk", "impressionist", "surrealist", "studio ghibli", "pop art"]
     }
   }
   

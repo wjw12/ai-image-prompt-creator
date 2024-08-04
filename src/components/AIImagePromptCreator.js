@@ -24,14 +24,6 @@ const AIImagePromptCreator = () => {
     parseTemplate(selectedTemplate.template);
   }, [selectedTemplate]);
 
-  useEffect(() => {
-    if (focusedCategory && promptConfig.categories[focusedCategory]) {
-      setSuggestions(promptConfig.categories[focusedCategory]);
-    } else {
-      setSuggestions([]);
-    }
-  }, [focusedCategory]);
-
   const parseTemplate = (template) => {
     const parts = template.split(/(\[[^\]]+\])/);
     const newPrompt = parts.map((part, index) => {
@@ -61,6 +53,22 @@ const AIImagePromptCreator = () => {
 
   const handleCategoryFocus = (category) => {
     setFocusedCategory(category);
+    if (promptConfig.categories[category]) {
+      const categoryItems = promptConfig.categories[category];
+      let initialSuggestions = [];
+  
+      if (categoryItems.length <= 6) {
+        initialSuggestions = [...categoryItems];
+      } else {
+        initialSuggestions = [...categoryItems]
+          .sort(() => 0.5 - Math.random())
+          .slice(0, 6);
+      }
+  
+      setSuggestions(initialSuggestions);
+    } else {
+      setSuggestions([]);
+    }
   };
 
   const handleCategoryChange = (id, newText) => {
@@ -76,19 +84,39 @@ const AIImagePromptCreator = () => {
     );
     if (focusedItem) {
       handleCategoryChange(focusedItem.id, suggestion);
+      
+      // Refresh suggestions to maintain 6 items
+      const categoryItems = promptConfig.categories[focusedCategory];
+      if (categoryItems.length > 6) {
+        const newSuggestions = [...categoryItems]
+          .filter(item => item !== suggestion)
+          .sort(() => 0.5 - Math.random())
+          .slice(0, 5);
+        setSuggestions([suggestion, ...newSuggestions]);
+      }
     }
   };
 
   const handleRandomize = () => {
     if (promptConfig.categories[focusedCategory]) {
-      const newSuggestions = [...promptConfig.categories[focusedCategory]];
+      const categoryItems = promptConfig.categories[focusedCategory];
+      let newSuggestions = [];
+  
+      // If there are 6 or fewer items, shuffle all of them
+      if (categoryItems.length <= 6) {
+        newSuggestions = [...categoryItems];
+      } else {
+        // If there are more than 6 items, randomly select 6
+        const shuffled = [...categoryItems].sort(() => 0.5 - Math.random());
+        newSuggestions = shuffled.slice(0, 6);
+      }
+  
+      // Shuffle the selected items
       for (let i = newSuggestions.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [newSuggestions[i], newSuggestions[j]] = [
-          newSuggestions[j],
-          newSuggestions[i],
-        ];
+        [newSuggestions[i], newSuggestions[j]] = [newSuggestions[j], newSuggestions[i]];
       }
+  
       setSuggestions(newSuggestions);
     }
   };
