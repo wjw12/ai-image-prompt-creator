@@ -14,6 +14,13 @@ const AIImagePromptCreator = () => {
   const suggestionsRef = useRef(null);
 
   useEffect(() => {
+    const letters = document.querySelectorAll('.animated-letter');
+    letters.forEach((letter, index) => {
+      letter.style.setProperty('--i', index);
+    });
+  }, []);
+
+  useEffect(() => {
     parseTemplate(selectedTemplate.template);
   }, [selectedTemplate]);
 
@@ -106,7 +113,13 @@ const AIImagePromptCreator = () => {
 
   return (
     <div className="ai-image-prompt-creator">
-      <h1>AI Image Prompt Creator</h1>
+      <h1 className="title">
+        {"AI Prompt Generator".split('').map((letter, index) => (
+            <span key={index} className="animated-letter">
+            {letter === ' ' ? '\u00A0' : letter}
+            </span>
+        ))}
+      </h1>
       <select onChange={handleTemplateChange} value={selectedTemplate.id}>
         {promptConfig.templates.map((template) => (
           <option key={template.id} value={template.id}>

@@ -1,5 +1,39 @@
 @import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
 
+.title {
+    font-size: 3em;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  .animated-letter {
+    display: inline-block;
+    animation: wave-animation 2s infinite;
+    animation-delay: calc(0.1s * var(--i));
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  @keyframes wave-animation {
+    0%, 100% {
+      transform: translateY(0) scale(1);
+      color: #4a0e4e;  /* Dark purple */
+    }
+    25% {
+      transform: translateY(-15px) scale(1.1);
+      color: #8e44ad;  /* Medium purple */
+    }
+    50% {
+      transform: translateY(0) scale(1);
+      color: #5b2c6f;  /* Rich purple */
+    }
+    75% {
+      transform: translateY(15px) scale(1.1);
+      color: #7d3c98;  /* Bright purple */
+    }
+  }
+
 body {
   background: linear-gradient(45deg, #cdf138, #fff700);
   margin: 0;
