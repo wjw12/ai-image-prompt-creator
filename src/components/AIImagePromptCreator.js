@@ -1,6 +1,6 @@
-'use client'
+"use client";
 import React, { useState, useEffect, useRef } from "react";
-import promptConfig from '/public/promptConfig.json';
+import promptConfig from "/public/promptConfig.json";
 
 const AIImagePromptCreator = () => {
   const [selectedTemplate, setSelectedTemplate] = useState(
@@ -14,9 +14,9 @@ const AIImagePromptCreator = () => {
   const suggestionsRef = useRef(null);
 
   useEffect(() => {
-    const letters = document.querySelectorAll('.animated-letter');
+    const letters = document.querySelectorAll(".animated-letter");
     letters.forEach((letter, index) => {
-      letter.style.setProperty('--i', index);
+      letter.style.setProperty("--i", index);
     });
   }, []);
 
@@ -56,7 +56,7 @@ const AIImagePromptCreator = () => {
     if (promptConfig.categories[category]) {
       const categoryItems = promptConfig.categories[category];
       let initialSuggestions = [];
-  
+
       if (categoryItems.length <= 6) {
         initialSuggestions = [...categoryItems];
       } else {
@@ -64,7 +64,7 @@ const AIImagePromptCreator = () => {
           .sort(() => 0.5 - Math.random())
           .slice(0, 6);
       }
-  
+
       setSuggestions(initialSuggestions);
     } else {
       setSuggestions([]);
@@ -84,12 +84,12 @@ const AIImagePromptCreator = () => {
     );
     if (focusedItem) {
       handleCategoryChange(focusedItem.id, suggestion);
-      
+
       // Refresh suggestions to maintain 6 items
       const categoryItems = promptConfig.categories[focusedCategory];
       if (categoryItems.length > 6) {
         const newSuggestions = [...categoryItems]
-          .filter(item => item !== suggestion)
+          .filter((item) => item !== suggestion)
           .sort(() => 0.5 - Math.random())
           .slice(0, 5);
         setSuggestions([suggestion, ...newSuggestions]);
@@ -101,7 +101,7 @@ const AIImagePromptCreator = () => {
     if (promptConfig.categories[focusedCategory]) {
       const categoryItems = promptConfig.categories[focusedCategory];
       let newSuggestions = [];
-  
+
       // If there are 6 or fewer items, shuffle all of them
       if (categoryItems.length <= 6) {
         newSuggestions = [...categoryItems];
@@ -110,13 +110,16 @@ const AIImagePromptCreator = () => {
         const shuffled = [...categoryItems].sort(() => 0.5 - Math.random());
         newSuggestions = shuffled.slice(0, 6);
       }
-  
+
       // Shuffle the selected items
       for (let i = newSuggestions.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [newSuggestions[i], newSuggestions[j]] = [newSuggestions[j], newSuggestions[i]];
+        [newSuggestions[i], newSuggestions[j]] = [
+          newSuggestions[j],
+          newSuggestions[i],
+        ];
       }
-  
+
       setSuggestions(newSuggestions);
     }
   };
@@ -139,13 +142,22 @@ const AIImagePromptCreator = () => {
       });
   };
 
+  const handleGenerateNow = () => {
+    const fullPrompt = prompt.map((item) => item.text).join("");
+    const url = `https://imagine.heurist.ai/models/${selectedTemplate.recommendedModel.replace(
+      /\s+/g,
+      ""
+    )}?prompt=${fullPrompt}`;
+    window.open(url, "_blank");
+  };
+
   return (
     <div className="ai-image-prompt-creator">
       <h1 className="title">
-        {"AI Prompt Generator".split('').map((letter, index) => (
-            <span key={index} className="animated-letter">
-            {letter === ' ' ? '\u00A0' : letter}
-            </span>
+        {"AI Prompt Generator".split("").map((letter, index) => (
+          <span key={index} className="animated-letter">
+            {letter === " " ? "\u00A0" : letter}
+          </span>
         ))}
       </h1>
       <select onChange={handleTemplateChange} value={selectedTemplate.id}>
@@ -196,6 +208,9 @@ const AIImagePromptCreator = () => {
       <button className="copy-btn" onClick={handleCopyPrompt}>
         Copy Prompt
       </button>
+      <button className="copy-btn" onClick={handleGenerateNow}>
+        Generate Now
+      </button>
       {copiedMessage && (
         <p className="copied-message">
           {copiedMessage}{" "}
@@ -239,7 +254,6 @@ const AIImagePromptCreator = () => {
         </p>
       </div>
     </div>
-    
   );
 };
 
