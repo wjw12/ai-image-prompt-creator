@@ -2,6 +2,7 @@
 
 .title {
     font-size: 3em;
+    padding: 20px 0px 20px;
     margin-bottom: 30px;
     display: flex;
     justify-content: center;
